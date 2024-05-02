@@ -18,6 +18,8 @@ body {
 
 body {
   background-color: #000;
+
+  font-family: Roboto, "Noto Sans TC", sans-serif;
 }
 
 /* header */
@@ -35,10 +37,12 @@ body {
   padding: 10px 0;
   height: calc(100% - var(--header-h) - var(--action-h) - var(--footer-h));
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
-body.mobile .body  {
-  height: calc((100% - var(--header-h) - var(--action-h) - var(--footer-h)) / 2);
+body.mobile .body {
+  height: calc(
+    (100% - var(--header-h) - var(--action-h) - var(--footer-h)) / 2
+  );
   border-top: 1px solid #fff;
 }
 .conversation {
@@ -147,12 +151,19 @@ body.mobile .body  {
   display: flex;
 }
 .powered-by {
-  padding: 9px 6px;
+  padding: 12px 6px;
   color: #fff;
   font-size: 24px;
 }
 
 /* other */
+.text {
+  display: flex;
+  flex-direction: column;
+}
+.x.text {
+  flex-direction: column-reverse;
+}
 .grow {
   flex-grow: 1;
 }
