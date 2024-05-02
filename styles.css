@@ -162,9 +162,6 @@ body.mobile .body {
   display: flex;
   flex-direction: column;
 }
-.x.text {
-  flex-direction: column-reverse;
-}
 .grow {
   flex-grow: 1;
 }
