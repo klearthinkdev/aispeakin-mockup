@@ -1,0 +1,164 @@
+:root {
+  --header-h: 64px;
+  --action-h: 80px;
+  --footer-h: 56px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
+/* header */
+.header {
+  padding: 0 16px;
+  width: 100%;
+  height: var(--header-h);
+
+  display: flex;
+  align-items: center;
+}
+
+/* body */
+.body {
+  padding: 10px 0;
+  height: calc(100% - var(--header-h) - var(--action-h) - var(--footer-h));
+
+  overflow-y: scroll;
+}
+body.mobile .body  {
+  height: calc((100% - var(--header-h) - var(--action-h) - var(--footer-h)) / 2);
+  border-top: 1px solid #fff;
+}
+.conversation {
+  padding: 0 16px;
+
+  flex-grow: 1;
+}
+
+.sender,
+.receiver {
+  padding: 0 16px;
+
+  display: flex;
+}
+.sender {
+  flex-direction: row-reverse;
+}
+.receiver {
+  flex-direction: row;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 16px;
+  border-radius: 16px;
+
+  position: relative;
+
+  background-color: #fff;
+  font-size: 20px;
+}
+.sender .message {
+  border-top-right-radius: 0;
+  border-top-left-radius: 16px;
+}
+.sender .flip.message {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 0;
+}
+.receiver .message {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 0;
+}
+.receiver .flip.message {
+  border-top-right-radius: 0;
+  border-top-left-radius: 16px;
+}
+.sender .message::after,
+.receiver .message::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  display: block;
+  position: absolute;
+  top: 0;
+  background: transparent;
+}
+.sender .message::after {
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent transparent #fff;
+  right: -12px;
+}
+.sender .flip.message::after {
+  border-width: 0 16px 16px 0;
+  border-color: transparent #fff transparent transparent;
+  right: unset;
+  left: -12px;
+}
+.receiver .message::after {
+  border-width: 0 16px 16px 0;
+  border-color: transparent #fff transparent transparent;
+  left: -12px;
+}
+.receiver .flip.message::after {
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent transparent #fff;
+  right: -12px;
+  left: unset;
+}
+.tran {
+  color: #0071bc;
+}
+.time {
+  margin-top: 16px;
+
+  color: #666;
+  font-size: 14px;
+  text-align: end;
+}
+
+/* action */
+.action {
+  padding: 16px;
+  width: 100%;
+  height: var(--action-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* footer */
+.footer {
+  padding: 0 16px;
+  height: var(--footer-h);
+  display: flex;
+}
+.powered-by {
+  padding: 9px 6px;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* other */
+.grow {
+  flex-grow: 1;
+}
+.rotate {
+  transform: rotate(180deg);
+}
+.flip {
+  transform: rotate(180deg) scaleY(-1);
+}
