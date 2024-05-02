@@ -37,6 +37,7 @@ body {
   padding: 10px 0;
   height: calc(100% - var(--header-h) - var(--action-h) - var(--footer-h));
 
+  display: flex;
   overflow-y: auto;
 }
 body.mobile .body {
